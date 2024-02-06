@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,request
 app = Flask(__name__)
  
 stores = [
@@ -16,3 +16,7 @@ stores = [
 @app.get("/store")
 def get_stores():
     return {"stores":stores}
+
+@app.post("/store")
+def create_store():
+    request_data = request.get_json()
